@@ -1,0 +1,23 @@
+# Core dependencies
+streamlit
+requests
+ollama
+
+# Document processing
+PyPDF2
+pdfplumber
+python-docx
+
+# Data handling
+pandas
+numpy<2.0  # Fix NumPy version conflict
+python-dotenv
+loguru
+tqdm
+
+# Exclude AI packages for now to avoid conflicts
+# torch
+# sentence-transformers
+# transformers
+# chromadb
+

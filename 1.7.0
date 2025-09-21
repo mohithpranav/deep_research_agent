@@ -1,0 +1,5 @@
+Collecting accelerate
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Installing collected packages: accelerate
+Successfully installed accelerate-1.10.1

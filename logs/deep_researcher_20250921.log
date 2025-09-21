@@ -1,0 +1,113 @@
+2025-09-21 11:04:05,593 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:04:05,596 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:04:05,600 - DocumentManager - ERROR - Failed to load metadata: no such column: file_hash
+2025-09-21 11:04:16,127 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:04:16,130 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:04:16,131 - DocumentManager - ERROR - Failed to load metadata: no such column: file_hash
+2025-09-21 11:04:22,634 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:04:22,640 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:04:22,641 - DocumentManager - ERROR - Failed to load metadata: no such column: file_hash
+2025-09-21 11:04:22,657 - DocumentManager - INFO - Searching for: 'who is mohith'
+2025-09-21 11:04:22,659 - DocumentManager - INFO - Found 0 content files
+2025-09-21 11:04:22,659 - DocumentManager - INFO - Found 0 search results
+2025-09-21 11:04:22,778 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:04:22,781 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:04:22,781 - DocumentManager - ERROR - Failed to load metadata: no such column: file_hash
+2025-09-21 11:05:16,691 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:05:16,696 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:05:16,696 - DocumentManager - ERROR - Failed to load metadata: no such column: file_hash
+2025-09-21 11:10:08,224 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:10:08,581 - DocumentManager - INFO - Added missing column: file_hash
+2025-09-21 11:10:08,590 - DocumentManager - INFO - Added missing column: full_text_path
+2025-09-21 11:10:08,592 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:10:08,597 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:10:12,822 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:10:19,153 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:10:19,157 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:10:19,159 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:10:42,899 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:10:42,906 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:10:42,907 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:10:43,061 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:10:43,065 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:10:43,067 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:16:48,163 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:16:48,169 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:16:48,170 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:16:56,347 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:16:56,352 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:16:56,354 - DocumentManager - INFO - Loaded metadata for 0 documents
+2025-09-21 11:16:56,360 - DocumentManager - INFO - Processing uploaded document: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:16:56,438 - DocumentManager - INFO - Successfully processed: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:17:04,254 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:17:04,263 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:17:04,267 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:17:18,663 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:17:18,672 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:17:18,674 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:18:45,404 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:18:45,416 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:18:45,419 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:22:52,452 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:22:52,456 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:22:52,457 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:25:58,981 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:25:58,986 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:25:58,986 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:26:04,133 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:26:04,137 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:26:04,142 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:26:04,152 - DocumentManager - INFO - Processing uploaded document: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:26:04,213 - DocumentManager - INFO - Successfully processed: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:26:08,634 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:26:08,646 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:26:08,646 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:31:46,823 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:31:46,846 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:31:46,846 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:31:57,693 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:31:57,705 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:31:57,710 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:36:11,675 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:36:11,675 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:36:11,675 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:36:16,579 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:36:16,585 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:36:16,587 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:44:26,139 - QueryAnalyzer - INFO - Query analysis: biographical - 1 keywords
+2025-09-21 11:49:49,859 - QueryAnalyzer - INFO - Query analysis: biographical - 1 keywords
+2025-09-21 11:50:01,367 - LLMClient - INFO - Generated response: 2550 chars
+2025-09-21 11:51:29,072 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:51:29,085 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:51:29,087 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:51:37,366 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:51:37,374 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:51:37,377 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:51:41,537 - QueryAnalyzer - INFO - Query analysis: biographical - 1 keywords
+2025-09-21 11:51:47,510 - LLMClient - INFO - Generated response: 596 chars
+2025-09-21 11:51:56,250 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:51:56,254 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:51:56,254 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:57:22,195 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:57:22,201 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:57:22,203 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:57:39,776 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:57:39,780 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:57:39,782 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:57:39,787 - DocumentManager - INFO - Processing uploaded document: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:57:39,851 - DocumentManager - INFO - Successfully processed: Resume-Mohith-Pranav-Check-Point-Software (1).pdf
+2025-09-21 11:57:53,368 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:57:53,378 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:57:53,379 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:57:57,479 - QueryAnalyzer - INFO - Query analysis: biographical - 1 keywords
+2025-09-21 11:58:09,886 - LLMClient - INFO - Generated response: 2765 chars
+2025-09-21 11:59:08,832 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:59:08,837 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:59:08,842 - DocumentManager - INFO - Loaded metadata for 1 documents
+2025-09-21 11:59:08,876 - DocumentManager - INFO - Processing uploaded document: Pegasus Spyware Attack.pdf
+2025-09-21 11:59:09,255 - DocumentManager - INFO - Successfully processed: Pegasus Spyware Attack.pdf
+2025-09-21 11:59:28,940 - DeepResearcherAgent - INFO - Starting Deep Researcher Agent
+2025-09-21 11:59:28,947 - DocumentManager - INFO - Database initialized successfully
+2025-09-21 11:59:28,949 - DocumentManager - INFO - Loaded metadata for 2 documents
+2025-09-21 11:59:33,057 - QueryAnalyzer - INFO - Query analysis: general - 4 keywords
+2025-09-21 11:59:43,129 - LLMClient - INFO - Generated response: 2869 chars
