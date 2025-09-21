@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
+import os
+import logging
 
 # Document processing imports
 import pdfplumber
@@ -15,7 +17,7 @@ import markdown
 
 from config.settings import Settings
 from config.model_config import ModelConfig
-from utils.logger import logger
+from utils.logger import setup_logger
 
 
 @dataclass
@@ -36,9 +38,12 @@ class TextChunk:
 
 
 class TextProcessor:
-    """Handles text extraction and chunking from various document formats"""
+    """
+    Handles text extraction from various document formats
+    """
     
     def __init__(self):
+        self.logger = setup_logger("TextProcessor")
         """Initialize text processor"""
         self.settings = Settings()
         self.model_config = ModelConfig()
@@ -72,7 +77,7 @@ class TextProcessor:
                 return text, metadata
                 
         except Exception as e:
-            logger.warning(f"pdfplumber failed for {file_path}: {e}")
+            self.logger.warning(f"pdfplumber failed for {file_path}: {e}")
         
         # Fallback to PyPDF2
         try:
@@ -88,7 +93,7 @@ class TextProcessor:
                         text += page_text + "\n"
                         
         except Exception as e:
-            logger.error(f"PyPDF2 also failed for {file_path}: {e}")
+            self.logger.error(f"PyPDF2 also failed for {file_path}: {e}")
             return "", {"error": str(e)}
         
         return text, metadata
@@ -121,7 +126,7 @@ class TextProcessor:
             return text, metadata
             
         except Exception as e:
-            logger.error(f"Error extracting text from DOCX {file_path}: {e}")
+            self.logger.error(f"Error extracting text from DOCX {file_path}: {e}")
             return "", {"error": str(e)}
     
     def extract_text_from_txt(self, file_path: Path) -> Tuple[str, Dict]:
@@ -154,11 +159,11 @@ class TextProcessor:
                     continue
             
             # If all encodings fail
-            logger.error(f"Could not decode text file {file_path}")
+            self.logger.error(f"Could not decode text file {file_path}")
             return "", {"error": "Could not decode file with any encoding"}
             
         except Exception as e:
-            logger.error(f"Error reading text file {file_path}: {e}")
+            self.logger.error(f"Error reading text file {file_path}: {e}")
             return "", {"error": str(e)}
     
     def extract_text_from_markdown(self, file_path: Path) -> Tuple[str, Dict]:
@@ -190,7 +195,7 @@ class TextProcessor:
             return text, metadata
             
         except Exception as e:
-            logger.error(f"Error extracting text from Markdown {file_path}: {e}")
+            self.logger.error(f"Error extracting text from Markdown {file_path}: {e}")
             return "", {"error": str(e)}
     
     def extract_text(self, file_path: Path) -> Tuple[str, Dict]:
@@ -215,7 +220,7 @@ class TextProcessor:
             return self.extract_text_from_markdown(file_path)
         else:
             error_msg = f"Unsupported file format: {file_ext}"
-            logger.error(error_msg)
+            self.logger.error(error_msg)
             return "", {"error": error_msg}
     
     def clean_text(self, text: str) -> str:
@@ -325,7 +330,7 @@ class TextProcessor:
             )
             chunks.append(chunk)
         
-        logger.info(f"Created {len(chunks)} chunks for document {doc_id}")
+        self.logger.info(f"Created {len(chunks)} chunks for document {doc_id}")
         return chunks
     
     def process_document(self, file_path: Path, doc_id: str) -> Tuple[List[TextChunk], Dict]:
@@ -339,13 +344,13 @@ class TextProcessor:
         Returns:
             Tuple of (chunks, processing_metadata)
         """
-        logger.info(f"Processing document: {doc_id}")
+        self.logger.info(f"Processing document: {doc_id}")
         
         # Extract text
         raw_text, extraction_metadata = self.extract_text(file_path)
         
         if not raw_text or "error" in extraction_metadata:
-            logger.error(f"Failed to extract text from {doc_id}")
+            self.logger.error(f"Failed to extract text from {doc_id}")
             return [], extraction_metadata
         
         # Clean text
@@ -364,7 +369,7 @@ class TextProcessor:
             "processing_status": "success"
         }
         
-        logger.info(f"Successfully processed {doc_id}: {len(chunks)} chunks created")
+        self.logger.info(f"Successfully processed {doc_id}: {len(chunks)} chunks created")
         return chunks, processing_metadata
     
     def save_chunks(self, chunks: List[TextChunk], doc_id: str) -> bool:
@@ -396,11 +401,11 @@ class TextProcessor:
             with open(chunks_file, 'w', encoding='utf-8') as f:
                 json.dump(chunks_data, f, indent=2, ensure_ascii=False)
             
-            logger.info(f"Saved {len(chunks)} chunks for document {doc_id}")
+            self.logger.info(f"Saved {len(chunks)} chunks for document {doc_id}")
             return True
             
         except Exception as e:
-            logger.error(f"Error saving chunks for {doc_id}: {e}")
+            self.logger.error(f"Error saving chunks for {doc_id}: {e}")
             return False
     
     def load_chunks(self, doc_id: str) -> List[TextChunk]:
@@ -436,5 +441,5 @@ class TextProcessor:
             return chunks
             
         except Exception as e:
-            logger.error(f"Error loading chunks for {doc_id}: {e}")
+            self.logger.error(f"Error loading chunks for {doc_id}: {e}")
             return []

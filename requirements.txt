@@ -1,23 +1,25 @@
 # Core dependencies
-streamlit
-requests
-ollama
+streamlit>=1.28.0
+requests>=2.31.0
 
 # Document processing
-PyPDF2
-pdfplumber
-python-docx
+PyPDF2>=3.0.1
+python-docx>=0.8.11
+pdfplumber>=0.9.0
+
+# Text processing
+markdown>=3.5.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
 
 # Data handling
-pandas
-numpy<2.0  # Fix NumPy version conflict
-python-dotenv
-loguru
-tqdm
+pandas>=2.0.0
+numpy>=1.24.0
 
-# Exclude AI packages for now to avoid conflicts
-# torch
-# sentence-transformers
-# transformers
-# chromadb
+# Database (built into Python but explicit for clarity)
+# sqlite3 is built-in
+
+# Utilities
+python-dateutil>=2.8.0
+pathlib2>=2.3.0
 
