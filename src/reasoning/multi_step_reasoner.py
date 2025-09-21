@@ -1,7 +1,7 @@
 """
 Multi-Step Reasoner - Orchestrates complex reasoning using retrieved context and LLM
 """
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List, Optional
 from utils.logger import setup_logger
 from .query_analyzer import QueryAnalyzer, QueryIntent
 from .response_synthesizer import ResponseSynthesizer

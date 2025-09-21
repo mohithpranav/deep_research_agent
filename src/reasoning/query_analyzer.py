@@ -1,7 +1,7 @@
 """
 Query Analyzer - Analyzes user queries to determine intent and context
 """
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List, Optional
 from enum import Enum
 from utils.logger import setup_logger
 

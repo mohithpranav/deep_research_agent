@@ -5,7 +5,7 @@ import os
 import pickle
 import numpy as np
 from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 
 from sentence_transformers import SentenceTransformer

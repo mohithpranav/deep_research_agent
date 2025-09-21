@@ -6,11 +6,12 @@ import os
 import sqlite3
 import hashlib
 from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 from datetime import datetime
 
 from config.settings import Settings
 from utils.logger import setup_logger
+from .text_processor import TextProcessor
 
 
 class DocumentManager:
@@ -19,12 +20,19 @@ class DocumentManager:
     def __init__(self):
         self.logger = setup_logger("DocumentManager")
         self.settings = Settings()
+        
+        # Setup paths
         self.project_root = Path(__file__).parent.parent.parent
-        self.uploads_dir = self.project_root / "data" / "uploads"
-        self.db_path = self.project_root / "data" / "research_agent.db"
+        self.data_dir = self.project_root / "data"
+        self.uploads_dir = self.data_dir / "uploads"
+        self.db_path = self.data_dir / "research_agent.db"
         
         # Create directories
-        self.uploads_dir.mkdir(parents=True, exist_ok=True)
+        self.data_dir.mkdir(exist_ok=True)
+        self.uploads_dir.mkdir(exist_ok=True)
+        
+        # Initialize text processor
+        self.text_processor = TextProcessor()
         
         # Initialize database
         self._init_database()
@@ -382,35 +390,86 @@ class DocumentManager:
             print(f"❌ {error_msg}")
             return [error_msg]
     
-    def get_processed_documents(self) -> List[Dict]:
-        """Get list of all processed documents"""
+    def sync_database_with_files(self):
+        """Sync database records with actual files"""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
             
-            cursor.execute("""
-                SELECT filename, file_type, file_size, upload_timestamp, processed
-                FROM documents 
-                ORDER BY upload_timestamp DESC
-            """)
+            # Get all database records
+            cursor.execute("SELECT id, filename FROM documents")
+            db_records = cursor.fetchall()
             
-            rows = cursor.fetchall()
+            removed_count = 0
+            for doc_id, filename in db_records:
+                # Check if files exist
+                original_file = self.uploads_dir / filename
+                content_file = self.uploads_dir / f"{filename}_content.txt"
+                base_name = Path(filename).stem
+                alt_content_file = self.uploads_dir / f"{base_name}_content.txt"
+                
+                files_exist = any([
+                    original_file.exists(),
+                    content_file.exists(),
+                    alt_content_file.exists()
+                ])
+                
+                if not files_exist:
+                    # Remove from database
+                    cursor.execute("DELETE FROM documents WHERE id = ?", (doc_id,))
+                    cursor.execute("DELETE FROM document_chunks WHERE document_id = ?", (doc_id,))
+                    removed_count += 1
+                    self.logger.info(f"Removed orphaned record: {filename}")
+            
+            conn.commit()
             conn.close()
             
-            documents = []
-            for row in rows:
-                documents.append({
-                    'filename': row[0],
-                    'file_type': row[1],
-                    'file_size': row[2],
-                    'upload_timestamp': row[3],
-                    'processed': bool(row[4])
-                })
+            if removed_count > 0:
+                self.logger.info(f"Database sync complete - removed {removed_count} orphaned records")
             
+            return removed_count
+            
+        except Exception as e:
+            self.logger.error(f"Database sync failed: {e}")
+            return 0
+
+    def get_processed_documents(self) -> List[Dict[str, Any]]:
+        """Get list of processed documents with auto-sync"""
+        try:
+            # First, sync database with actual files
+            self.sync_database_with_files()
+            
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            
+            cursor.execute('''
+                SELECT id, filename, file_size, upload_date, status
+                FROM documents
+                ORDER BY upload_date DESC
+            ''')
+            
+            documents = []
+            for row in cursor.fetchall():
+                # Verify file still exists before adding to list
+                filename = row[1]
+                content_file = self.uploads_dir / f"{filename}_content.txt"
+                base_name = Path(filename).stem  
+                alt_content_file = self.uploads_dir / f"{base_name}_content.txt"
+                
+                if content_file.exists() or alt_content_file.exists():
+                    documents.append({
+                        'id': row[0],
+                        'filename': row[1],
+                        'file_size': row[2] or 0,
+                        'upload_date': row[3] or 'Unknown',
+                        'status': row[4] or 'ready'
+                    })
+            
+            conn.close()
             return documents
             
         except Exception as e:
-            self.logger.error(f"Failed to get processed documents: {e}")
+            self.logger.error(f"Error getting processed documents: {e}")
             return []
     
     def is_healthy(self) -> bool:

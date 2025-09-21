@@ -1,7 +1,7 @@
 """
 Response Synthesizer - Creates comprehensive responses from multiple sources
 """
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List, Optional
 from utils.logger import setup_logger
 from .llm_client import LLMClient
 
