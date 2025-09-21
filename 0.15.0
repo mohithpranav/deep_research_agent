@@ -1,5 +1,0 @@
-Collecting tokenizers
-  Using cached tokenizers-0.22.1-cp39-abi3-win_amd64.whl.metadata (6.9 kB)
-Using cached tokenizers-0.22.1-cp39-abi3-win_amd64.whl (2.7 MB)
-Installing collected packages: tokenizers
-Successfully installed tokenizers-0.22.1

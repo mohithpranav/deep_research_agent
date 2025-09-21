@@ -1,5 +1,0 @@
-Collecting huggingface-hub
-  Using cached huggingface_hub-0.35.0-py3-none-any.whl.metadata (14 kB)
-Using cached huggingface_hub-0.35.0-py3-none-any.whl (563 kB)
-Installing collected packages: huggingface-hub
-Successfully installed huggingface-hub-0.35.0
