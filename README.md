@@ -1,9 +1,18 @@
-Step 1: Clone Repository
+# 🧠 Deep Researcher Agent
+
+An AI-powered multi-document research assistant that runs **locally** using [Ollama](https://ollama.ai).  
+This guide will help you set up and run the project on your machine.
+
+---
+
+## 🚀 Setup Instructions
+
+# Step 1: Clone Repository
 
 git clone https://github.com/mohithpranav/deep_research_agent
 cd deep_researcher_agent
 
-Step 2: Python Environment Setup
+# Step 2: Python Environment Setup
 
 # Create virtual environment
 
@@ -23,7 +32,7 @@ source venv/bin/activate
 
 python -m pip install --upgrade pip
 
-Step 3: Install Python Dependencies
+# Step 3: Install Python Dependencies
 
 # Install all required packages
 
@@ -33,37 +42,35 @@ pip install -r requirements.txt
 
 pip install markdown beautifulsoup4 lxml typing-extensions
 
-Step 4: Install Ollama (Local AI Engine)
+# Step 4: Install Ollama (Local AI Engine)
 
-# Windows - Download installer from ollama.ai
-
-# Or use winget:
+# Windows - Download installer from ollama.ai OR
 
 winget install Ollama.Ollama
 
-# macOS:
+# macOS
 
 brew install ollama
 
-# Linux:
+# Linux
 
 curl -fsSL https://ollama.ai/install.sh | sh
 
-Step 5: Setup llama2:7b Model
+# Step 5: Setup llama2:7b Model
 
 # Start Ollama service (keep this terminal running)
 
 ollama serve
 
-# Open NEW terminal and pull the model (4GB download):
+# Open NEW terminal and pull the model (4GB download)
 
 ollama pull llama2:7b
 
-# Test the model works:
+# Test the model works
 
 ollama run llama2:7b "Hello, introduce yourself briefly"
 
-Step 6: Verify Complete Setup
+# Step 6: Verify Complete Setup
 
 # Navigate back to project directory
 
@@ -93,7 +100,7 @@ python debug_ai.py
 
 python cleanup_database.py
 
-Step 7: Run the Application
+# Step 7: Run the Application
 
 # Start the Deep Researcher Agent
 
@@ -101,23 +108,31 @@ streamlit run main.py
 
 # App automatically opens at: http://localhost:8501
 
-📦 Complete Requirements
-Your requirements.txt includes:
-streamlit>=1.28.0 # Web UI framework
-sentence-transformers>=2.2.2 # Text embeddings  
-pdfplumber>=0.9.0 # PDF processing
-python-docx>=0.8.11 # Word document processing
-faiss-cpu>=1.7.4 # Vector similarity search
-pandas>=2.0.0 # Data manipulation
-numpy>=1.24.0 # Numerical computing
-python-dotenv>=1.0.0 # Environment variables
-markdown>=3.5.1 # Markdown processing
-typing-extensions>=4.8.0 # Type hints
-beautifulsoup4>=4.12.0 # HTML parsing
-lxml>=4.9.0 # XML processing
-ollama>=0.1.7 # Ollama Python client
+---
 
-Ollama Issues
+## 📦 Complete Requirements
+
+Your `requirements.txt` includes:
+
+- streamlit>=1.28.0 # Web UI framework
+- sentence-transformers>=2.2.2 # Text embeddings
+- pdfplumber>=0.9.0 # PDF processing
+- python-docx>=0.8.11 # Word document processing
+- faiss-cpu>=1.7.4 # Vector similarity search
+- pandas>=2.0.0 # Data manipulation
+- numpy>=1.24.0 # Numerical computing
+- python-dotenv>=1.0.0 # Environment variables
+- markdown>=3.5.1 # Markdown processing
+- typing-extensions>=4.8.0 # Type hints
+- beautifulsoup4>=4.12.0 # HTML parsing
+- lxml>=4.9.0 # XML processing
+- ollama>=0.1.7 # Ollama Python client
+
+---
+
+## 🛠 Troubleshooting
+
+### Ollama Issues
 
 # Check if Ollama is running
 
@@ -135,7 +150,7 @@ ollama pull llama2:7b
 
 python test_ollama.py
 
-Python Issues
+### Python Issues
 
 # If package installation fails
 
@@ -146,17 +161,15 @@ pip install -r requirements.txt --force-reinstall
 
 pip install typing-extensions dataclasses
 
-Memory Issues
+### Memory Issues
 
 # llama2:7b requires significant RAM
 
-# Close other applications
-
-# Or use smaller model:
+# Close other applications or use smaller model:
 
 ollama pull llama2:7b-q4_0 # Quantized version (less RAM)
 
-Application Issues
+### Application Issues
 
 # Clear database if corrupted
 
